@@ -92,8 +92,28 @@ export const mutations = {
   },
   setpickSongs(state: State, randomSongs: any[]) {
     state.pickSongs = randomSongs.concat()
+  },
+  toggleLikeSongs(state: State, likeSongObject: any) {
+    if (!likeSongObject.isLiked) {
+      state.likeSongs.unshift({
+        image: likeSongObject.image,
+        title: likeSongObject.title,
+        link: likeSongObject.link,
+        id: likeSongObject.id,
+        isLiked: true
+      })
+    } else {
+      const newLikeSongs = state.likeSongs.filter((likeSong: any) => likeSong.id !== likeSongObject.id)
+      state.likeSongs = newLikeSongs
+    }
+    const newPickSongs = state.pickSongs.map((pickSong: any) => {
+      if (pickSong.id === likeSongObject.id) {
+        pickSong.isLiked = !pickSong.isLiked
+      }
+      return pickSong
+    })
+    state.pickSongs = newPickSongs
   }
-
 }
 
 export const actions = {

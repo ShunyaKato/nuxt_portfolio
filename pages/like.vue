@@ -14,11 +14,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default Vue.extend({
-  components: {}
-})
+@Component({})
+export default class LIke extends Vue {}
 </script>
 
 <style lang="scss" scoped>
