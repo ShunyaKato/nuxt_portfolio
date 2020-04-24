@@ -62,6 +62,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { fetchApi } from '@/utils/index'
 // import VueScrollTo from 'vue-scrollto'
 
 // Vue.use(VueScrollTo, {
@@ -79,6 +80,10 @@ export default class Layouts extends Vue {
 
   openHumburger() {
     this.isOpened = !this.isOpened
+  }
+
+  async beforeCreate() {
+    await this.$store.dispatch('createSongDataArray', 488)
   }
 
   mounted() {

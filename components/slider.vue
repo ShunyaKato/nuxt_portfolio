@@ -1,9 +1,21 @@
 <template>
   <div class="coverflow">
     <swiper class="coverflow__swiper" :options="swiperOption">
-      <swiper-slide class="coverflow__swiper__content"></swiper-slide>
-      <swiper-slide class="coverflow__swiper__content"></swiper-slide>
-      <swiper-slide class="coverflow__swiper__content"></swiper-slide>
+      <swiper-slide
+        class="coverflow__swiper__content"
+        v-for="(pickSong, index) in pickSongs"
+        :key="index"
+      >
+        <a class="coverflow__swiper__content__link">
+          <img
+            class="coverflow__swiper__content__link__image"
+            :src="pickSong.image"
+            alt="coverImage"
+          />
+        </a>
+        <p class="coverflow__swiper__content__title">{{pickSong.title}}</p>
+        <button class="coverflow__swiper__content__button" type="button"></button>
+      </swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
@@ -40,6 +52,10 @@ export default class Index extends Vue {
       prevEl: '.swiper-button-prev'
     }
   }
+
+  get pickSongs() {
+    return this.$store.state.pickSongs
+  }
 }
 </script>
 
@@ -53,12 +69,19 @@ export default class Index extends Vue {
     padding: 50px 0 120px;
     &__content {
       display: flex;
-      justify-content: center;
+      // justify-content: center;
       align-items: center;
       flex-direction: column;
       width: 480px;
       height: 480px;
-      background-color: #2c8dfb;
+      font-weight: bold;
+      &__link {
+        &__image {
+          width: 100%;
+        }
+      }
+      &__button {
+      }
     }
   }
 }

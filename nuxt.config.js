@@ -1,3 +1,6 @@
+require('dotenv').config()
+const { VUE_APP_API_KEY } = process.env
+
 export default {
   mode: 'spa',
   /*
@@ -71,5 +74,8 @@ export default {
         icons: ['fas']
       }
     ]
+  },
+  env: {
+    apiKey: VUE_APP_API_KEY
   }
 }

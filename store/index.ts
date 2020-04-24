@@ -1,3 +1,21 @@
+import { fetchApi } from '@/utils/index.ts'
+
+interface State {
+  isFixed: boolean
+  artistData: object[]
+  songsData: Song[]
+  pickSongs: object[]
+  likeSongs: object[]
+}
+interface Song {
+  song_art_image_url: string
+  title: string
+  url: string
+  id: number
+  isLiked: boolean
+}
+
+
 export const state = () => ({
   isFixed: false,
   artistData: [
@@ -55,11 +73,52 @@ export const state = () => ({
         }
       ]
     }
-  ]
+  ],
+  songsData: [],
+  pickSongs: [],
+  likeSongs: []
 })
 
 export const mutations = {
-  switchIsFixed(state: any, isFixed: boolean) {
+  switchIsFixed(state: State, isFixed: boolean) {
     state.isFixed = isFixed
+  },
+  songsReset(state: State) {
+    state.songsData = []
+    state.pickSongs = []
+  },
+  setSongs(state: State, songObject: any) {
+    state.songsData.push(songObject)
+  },
+  setpickSongs(state: State, randomSongs: any[]) {
+    state.pickSongs = randomSongs.concat()
+  }
+
+}
+
+export const actions = {
+  async createSongDataArray({ state, commit }: { state: State, commit: any }, artistId: number) {
+    const data = await fetchApi(artistId)
+    const songs: Song[] = data.response.songs
+    commit('songsReset')
+    for (let i = 0; i < songs.length; i++) {
+      commit('setSongs', {
+        image: songs[i].song_art_image_url,
+        title: songs[i].title,
+        link: songs[i].url,
+        id: songs[i].id,
+        isLiked: false
+      })
+    }
+    const copySongsData = state.songsData.concat()
+    let songsLength = copySongsData.length
+    const randomSongs = []
+    for (let i = 1; i < 5; i++) {
+      const randomNumber = Math.floor(Math.random() * songsLength)
+      randomSongs.push(state.songsData[randomNumber])
+      copySongsData[randomNumber] = copySongsData[songsLength - 1]
+      songsLength = songsLength - 1
+    }
+    commit('setpickSongs', randomSongs)
   }
 }
