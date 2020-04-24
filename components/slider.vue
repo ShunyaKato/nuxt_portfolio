@@ -1,6 +1,10 @@
 <template>
   <div class="coverflow">
-    <swiper class="coverflow__swiper" :options="swiperOption">
+    <swiper
+      class="coverflow__swiper"
+      :options="swiperOption"
+      v-if="pickSongs && pickSongs.length > 0"
+    >
       <swiper-slide
         class="coverflow__swiper__content"
         v-for="(pickSong, index) in pickSongs"
@@ -69,18 +73,16 @@ export default class Index extends Vue {
     padding: 50px 0 120px;
     &__content {
       display: flex;
-      // justify-content: center;
       align-items: center;
       flex-direction: column;
       width: 480px;
       height: 480px;
       font-weight: bold;
       &__link {
+        width: 100%;
         &__image {
           width: 100%;
         }
-      }
-      &__button {
       }
     }
   }

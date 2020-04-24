@@ -11,6 +11,7 @@
         class="artist__button"
         v-for="(artist, index) in artistData.data"
         :key="index"
+        @click="changeArtist(artist.id)"
         :artistId="artistData.id"
       >
         <font-awesome-icon class="artist__button__icon" icon="angle-right" />
@@ -30,9 +31,9 @@ export default class ArtistSection extends Vue {
     return this.$store.state.artistData
   }
 
-  // async changeArtist(id: string) {
-  //   await this.$store.dispatch('createSongDataArray', id)
-  // }
+  async changeArtist(id: number) {
+    await this.$store.dispatch('createSongDataArray', id)
+  }
 }
 </script>
 <style lang='scss' scoped>
