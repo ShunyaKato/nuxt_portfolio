@@ -24,6 +24,6 @@ export default class Index extends Vue {
 
 <style lang='scss'>
 .addMarginTop {
-  margin-top: 140px;
+  margin-top: 120px;
 }
 </style>

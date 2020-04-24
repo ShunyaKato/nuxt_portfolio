@@ -13,6 +13,7 @@
         :key="index"
         @click="changeArtist(artist.id)"
         :artistId="artistData.id"
+        v-scroll-to="'body'"
       >
         <font-awesome-icon class="artist__button__icon" icon="angle-right" />
         <p class="artist__button__name">{{artist.name}}</p>

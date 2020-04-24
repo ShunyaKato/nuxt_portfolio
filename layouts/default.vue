@@ -63,15 +63,9 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { fetchApi } from '@/utils/index'
-// import VueScrollTo from 'vue-scrollto'
-
-// Vue.use(VueScrollTo, {
-//   offset: -50
-// })
 
 @Component
 export default class Layouts extends Vue {
-  // isFixed = false
   get isFixed() {
     return this.$store.state.isFixed
   }
@@ -89,7 +83,7 @@ export default class Layouts extends Vue {
   mounted() {
     window.onscroll = () => {
       const y = pageYOffset
-      if (y >= 93) {
+      if (y >= 73) {
         this.$store.commit('switchIsFixed', true)
       } else {
         this.$store.commit('switchIsFixed', false)
@@ -130,7 +124,7 @@ a {
 
 header {
   background-color: #333333;
-  padding: 20px 20px 0 20px;
+  padding: 0 20px;
   a {
     color: #ffffff;
   }
@@ -205,7 +199,7 @@ header {
 .headerFixed {
   @media (min-width: 680px) {
     position: fixed;
-    top: -93px;
+    top: -73px;
     width: 100%;
     z-index: 10;
     box-sizing: border-box;

@@ -78,6 +78,7 @@ export default class Index extends Vue {
       width: 480px;
       height: 480px;
       font-weight: bold;
+      font-size: 20px;
       &__link {
         width: 100%;
         &__image {
@@ -86,5 +87,9 @@ export default class Index extends Vue {
       }
     }
   }
+}
+.swiper-button-prev,
+.swiper-button-next {
+  margin-bottom: 50px;
 }
 </style>
