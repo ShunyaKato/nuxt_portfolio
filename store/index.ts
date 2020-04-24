@@ -113,6 +113,10 @@ export const mutations = {
       return pickSong
     })
     state.pickSongs = newPickSongs
+  },
+  removeLikeSongs(state: State, songId: any) {
+    const newLikeSongs = state.likeSongs.filter((likeSong: any) => likeSong.id !== songId)
+    state.likeSongs = newLikeSongs
   }
 }
 
