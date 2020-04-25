@@ -1,18 +1,18 @@
 <template>
   <div class="home" :class="{addMarginTop: isFixed}">
-    <slider />
-    <artist />
+    <Slider />
+    <Artist />
   </div>
 </template>
 
 <script lang='ts'>
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import slider from '@/components/slider.vue'
+// import Slider from '@/components/Slider.vue'
 
 @Component({
   components: {
-    slider,
-    artist: () => import('~/components/artist.vue')
+    Slider: () => import('~/components/Slider.vue'),
+    Artist: () => import('~/components/Artist.vue')
   }
 })
 export default class Index extends Vue {

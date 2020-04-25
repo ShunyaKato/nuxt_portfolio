@@ -34,6 +34,7 @@ export default class LIke extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 1000px;
   &__title {
     margin: 50px 0 20px;
   }
