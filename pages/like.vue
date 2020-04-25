@@ -16,7 +16,9 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-@Component({})
+@Component({
+  layout: 'likeLayouts'
+})
 export default class LIke extends Vue {
   get likeSongs() {
     return this.$store.state.likeSongs
@@ -34,7 +36,7 @@ export default class LIke extends Vue {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 1000px;
+  padding-top: 75px;
   &__title {
     margin: 50px 0 20px;
   }

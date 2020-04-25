@@ -72,38 +72,8 @@ export default class Layouts extends Vue {
   openHumburger() {
     this.isOpened = !this.isOpened
   }
-
-  // async beforeCreate() {
-  //   await this.$store.dispatch('createSongDataArray', 488)
-  // }
-
-  // mounted() {
-  //   window.onscroll = () => {
-  //     const y = pageYOffset
-  //     if (y >= 73) {
-  //       this.$store.commit('switchIsFixed', true)
-  //     } else {
-  //       this.$store.commit('switchIsFixed', false)
-  //     }
-  //   }
-  // }
 }
 </script>
-
-<style lang="scss">
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-body {
-  background-color: #202020;
-  color: #ffffff;
-  font-family: Yu Gothic;
-}
-</style>
 
 <style lang="scss" scoped>
 li {
