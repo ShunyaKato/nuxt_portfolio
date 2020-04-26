@@ -1,5 +1,6 @@
 <template>
   <div class="home" :class="{addMarginTop: isFixed}">
+    <Loading />
     <Slider />
     <Artist />
   </div>
@@ -12,7 +13,8 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component({
   components: {
     Slider: () => import('~/components/Slider.vue'),
-    Artist: () => import('~/components/Artist.vue')
+    Artist: () => import('~/components/Artist.vue'),
+    Loading: () => import('~/components/Loading.vue')
   }
 })
 export default class Index extends Vue {

@@ -1,10 +1,6 @@
 <template>
   <div class="coverflow">
-    <swiper
-      class="coverflow__swiper"
-      :options="swiperOption"
-      v-if="pickSongs && pickSongs.length > 0"
-    >
+    <swiper class="coverflow__swiper" :options="swiperOption" v-if="pickSongs.length > 0">
       <swiper-slide
         class="coverflow__swiper__content"
         v-for="(pickSong, index) in pickSongs"
