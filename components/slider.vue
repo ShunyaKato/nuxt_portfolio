@@ -140,6 +140,21 @@ export default class Index extends Vue {
   color: #e0255d;
 }
 
+@media (max-width: 680px) {
+  .coverflow {
+    &__swiper {
+      padding: 120px 0 100px;
+      &__content {
+        width: 270px;
+        height: 270px;
+        &__button {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   margin-bottom: 50px;

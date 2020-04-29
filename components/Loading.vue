@@ -28,4 +28,10 @@ export default class Loading extends Vue {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 680px) {
+  .loading {
+    height: 490px;
+  }
+}
 </style>

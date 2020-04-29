@@ -31,4 +31,19 @@ header {
     }
   }
 }
+
+@media (max-width: 680px) {
+  header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    .container {
+      padding: 0 10px;
+      margin: 0;
+      &__title {
+        font-size: 30px;
+      }
+    }
+  }
+}
 </style>
