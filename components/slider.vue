@@ -35,13 +35,13 @@
 
 <script lang='ts'>
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+// import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+// import 'swiper/css/swiper.css'
 
 @Component({
   components: {
-    Swiper,
-    SwiperSlide
+    // Swiper,
+    // SwiperSlide
   }
 })
 export default class Index extends Vue {
